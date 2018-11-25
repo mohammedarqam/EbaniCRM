@@ -1,4 +1,4 @@
-page-login {
+page-sign-up {
     .scroll-content {
         overflow: hidden;
       }
@@ -35,11 +35,11 @@ page-login {
       .item {
         background-color: transparent;
       }
-      .input {
+      .input,ion-textarea {
         border: solid 1px;
         border-color: #209E91;
         color: #ffffff;
         margin: 20px;
       }
-  }
-  
+
+}

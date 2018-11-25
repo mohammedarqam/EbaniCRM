@@ -4,18 +4,22 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { DashboardPage } from '../pages/Extra/dashboard/dashboard';
 import { LoginPage } from '../pages/Extra/login/login';
-import { UsersPage } from '../pages/Users/users/users';
-import { UserDetailsPage } from '../pages/Users/user-details/user-details';
-import { UserOptionsPage } from '../pages/Users/user-options/user-options';
 import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import {AngularFireAuthModule} from 'angularfire2/auth';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { SignUpPage } from '../pages/Extra/sign-up/sign-up';
+import { ProfilePage } from '../pages/MainPages/profile/profile';
 
 
 
 export const firebaseCred = {
-// Add Firebase Api key Here
+  apiKey: "AIzaSyDfYGCZchTJHmNBlk4-T4-B24d7qtBs4LQ",
+  authDomain: "posters-83a2e.firebaseapp.com",
+  databaseURL: "https://posters-83a2e.firebaseio.com",
+  projectId: "posters-83a2e",
+  storageBucket: "posters-83a2e.appspot.com",
+  messagingSenderId: "9709869347"
 };
 firebase.initializeApp(firebaseCred);
 
@@ -27,9 +31,8 @@ firebase.initializeApp(firebaseCred);
     MyApp,
     DashboardPage,
     LoginPage,
-    UsersPage,
-    UserDetailsPage,
-    UserOptionsPage,
+    SignUpPage,
+    ProfilePage,
   ],
   imports: [
     BrowserModule,
@@ -43,12 +46,11 @@ firebase.initializeApp(firebaseCred);
     MyApp,
     DashboardPage,
     LoginPage,
-    UsersPage,
-    UserDetailsPage,
-    UserOptionsPage,
+    SignUpPage,
+    ProfilePage,
   ],
   providers: [
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }

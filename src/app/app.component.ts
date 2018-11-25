@@ -3,30 +3,31 @@ import { Nav, Platform, ToastController } from 'ionic-angular';
 
 import * as firebase from 'firebase';
 import { LoginPage } from '../pages/Extra/login/login';
-import { UsersPage } from '../pages/Users/users/users';
 import { DashboardPage } from '../pages/Extra/dashboard/dashboard';
+import { SignUpPage } from '../pages/Extra/sign-up/sign-up';
+import { ProfilePage } from '../pages/MainPages/profile/profile';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = SignUpPage;
   activePage: any;
 
-  full : boolean = true;
+  full: boolean = true;
 
-  pages: Array<{ title: string, component: any, icon: any, color : string }>;
+  pages: Array<{ title: string, component: any, icon: any, color: string }>;
 
   constructor(
-    public platform: Platform,    
+    public platform: Platform,
     public toastCtrl: ToastController,
-    ) {
-      this.initializeApp();
+  ) {
+    this.initializeApp();
 
     this.pages = [
-      { title: 'DashBoard', component: DashboardPage, icon: "flash",color: "yellowi" },
-      { title: 'Users', component: UsersPage, icon: "ios-people",color: "whiter" },
+      { title: 'DashBoard', component: DashboardPage, icon: "flash", color: "yellowi" },
+      { title: 'Profile', component: ProfilePage, icon: "ios-person", color: "whiter" },
 
 
     ];
@@ -38,23 +39,12 @@ export class MyApp {
     this.platform.ready().then(() => {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-        firebase.database().ref("Admin Data").child("Admins").child(user.uid).once('value',itemSnap=>{
-            if(itemSnap.exists()){
-              var welMsg = "Welcome"+" "+itemSnap.val().Name;
-              this.rootPage = DashboardPage;
-              this.presentToast(welMsg);
-            }else{
-              firebase.auth().signOut().then(()=>{
-                this.rootPage = LoginPage;
-                this.presentToast("You are not registered a Admin")
-              })
-            }
-    });
-      }
-      else{
-        this.rootPage = LoginPage;
-      }
-    });  
+          this.rootPage = DashboardPage;
+        }
+        else {
+          this.rootPage = LoginPage;
+        }
+      });
     });
   }
 
@@ -75,22 +65,22 @@ export class MyApp {
       console.log(error.message);
     });
 
- 
-}
-presentToast(msg) {
-  let toast = this.toastCtrl.create({
-    message: msg,
-    duration: 4000,
-    position : "top",
-    showCloseButton: false,
-  });
-  toast.present();
-}
-collapse(){
-  this.full = false;
-}
-expand(){
-  this.full = true;
-}
+
+  }
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 4000,
+      position: "top",
+      showCloseButton: false,
+    });
+    toast.present();
+  }
+  collapse() {
+    this.full = false;
+  }
+  expand() {
+    this.full = true;
+  }
 
 }
