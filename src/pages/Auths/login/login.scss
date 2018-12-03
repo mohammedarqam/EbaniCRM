@@ -1,9 +1,9 @@
-page-sign-up {
+page-login {
     .scroll-content {
         overflow: hidden;
       }
       .bg-main {
-        background-image: url("../assets/imgs/bgMain.png");
+        background-image: url("../assets/imgs/blur-bg.jpg");
         position: fixed;
         width: 100%;
         height: 100%;
@@ -35,11 +35,11 @@ page-sign-up {
       .item {
         background-color: transparent;
       }
-      .input,ion-textarea {
+      .input {
         border: solid 1px;
         border-color: #209E91;
         color: #ffffff;
         margin: 20px;
       }
-
-}
+  }
+  

@@ -2,24 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { DashboardPage } from '../pages/Extra/dashboard/dashboard';
-import { LoginPage } from '../pages/Extra/login/login';
 import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { SignUpPage } from '../pages/Extra/sign-up/sign-up';
-import { ProfilePage } from '../pages/MainPages/profile/profile';
+import { DashboardPage } from '../pages/MainPages/dashboard/dashboard';
+import { LoginPage } from '../pages/Auths/login/login';
+import { ChangePasswordPage } from '../pages/Settings/change-password/change-password';
+import { SettingsPage } from '../pages/MainPages/settings/settings';
 
 
 
 export const firebaseCred = {
-  apiKey: "AIzaSyDfYGCZchTJHmNBlk4-T4-B24d7qtBs4LQ",
-  authDomain: "posters-83a2e.firebaseapp.com",
-  databaseURL: "https://posters-83a2e.firebaseio.com",
-  projectId: "posters-83a2e",
-  storageBucket: "posters-83a2e.appspot.com",
-  messagingSenderId: "9709869347"
+  apiKey: "AIzaSyD6PBJ3vQ31XhrHlnrtRRFHWn8T-SYd10c",
+  authDomain: "ebanicrm.firebaseapp.com",
+  databaseURL: "https://ebanicrm.firebaseio.com",
+  projectId: "ebanicrm",
+  storageBucket: "ebanicrm.appspot.com",
+  messagingSenderId: "465450608364"
 };
 firebase.initializeApp(firebaseCred);
 
@@ -31,8 +31,8 @@ firebase.initializeApp(firebaseCred);
     MyApp,
     DashboardPage,
     LoginPage,
-    SignUpPage,
-    ProfilePage,
+    ChangePasswordPage,
+    SettingsPage,
   ],
   imports: [
     BrowserModule,
@@ -46,8 +46,8 @@ firebase.initializeApp(firebaseCred);
     MyApp,
     DashboardPage,
     LoginPage,
-    SignUpPage,
-    ProfilePage,
+    ChangePasswordPage,
+    SettingsPage,
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler }

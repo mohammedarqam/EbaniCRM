@@ -2,17 +2,16 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, ToastController } from 'ionic-angular';
 
 import * as firebase from 'firebase';
-import { LoginPage } from '../pages/Extra/login/login';
-import { DashboardPage } from '../pages/Extra/dashboard/dashboard';
-import { SignUpPage } from '../pages/Extra/sign-up/sign-up';
-import { ProfilePage } from '../pages/MainPages/profile/profile';
+import { LoginPage } from '../pages/Auths/login/login';
+import { DashboardPage } from '../pages/MainPages/dashboard/dashboard';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = SignUpPage;
+  rootPage: any = LoginPage;
   activePage: any;
 
   full: boolean = true;
@@ -27,7 +26,6 @@ export class MyApp {
 
     this.pages = [
       { title: 'DashBoard', component: DashboardPage, icon: "flash", color: "yellowi" },
-      { title: 'Profile', component: ProfilePage, icon: "ios-person", color: "whiter" },
 
 
     ];
