@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add Employee</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label floating>Employee Name</ion-label>
+        <ion-input type="text" [(ngModel)]="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Department</ion-label>
+        <ion-select [(ngModel)]="dep">
+          <ion-option value="Admin">Admin</ion-option>
+          <ion-option value="Finance">Finance</ion-option>
+          <ion-option value="BusinessDevelopment">Business Development</ion-option>
+          <ion-option value="Creative">Creative</ion-option>
+          <ion-option value="SocialMedia">Social Media</ion-option>
+          <ion-option value="SoftwareDevelopment">Software Development</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Job Title</ion-label>
+        <ion-input type="text" [(ngModel)]="title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="mail"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Phone</ion-label>
+        <ion-input type="tel" [(ngModel)]="phone"></ion-input>
+      </ion-item>
+
+
+      <button ion-button float-right round (click)="checkData()">Add</button>
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

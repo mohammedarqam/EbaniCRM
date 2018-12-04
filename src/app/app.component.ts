@@ -3,7 +3,11 @@ import { Nav, Platform, ToastController } from 'ionic-angular';
 
 import * as firebase from 'firebase';
 import { LoginPage } from '../pages/Auths/login/login';
-import { DashboardPage } from '../pages/MainPages/dashboard/dashboard';
+import { SettingsPage } from '../pages/MainPages/settings/settings';
+import { TasksPage } from '../pages/MainPages/tasks/tasks';
+import { FilesPage } from '../pages/MainPages/files/files';
+import { MessagingPage } from '../pages/MainPages/messaging/messaging';
+import { AdminDashboardPage } from '../pages/Dashboards/admin-dashboard/admin-dashboard';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +18,6 @@ export class MyApp {
   rootPage: any = LoginPage;
   activePage: any;
 
-  full: boolean = true;
 
   pages: Array<{ title: string, component: any, icon: any, color: string }>;
 
@@ -25,7 +28,11 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'DashBoard', component: DashboardPage, icon: "flash", color: "yellowi" },
+      { title: 'Admin DashBoard', component: AdminDashboardPage, icon: "flash", color: "yellowi" },
+      { title: 'Tasks', component: TasksPage, icon: "md-checkbox-outline", color: "whiter" },
+      { title: 'Files', component: FilesPage, icon: "md-folder", color: "whiter" },
+      { title: 'Messaging', component: MessagingPage, icon: "md-chatbubbles", color: "whiter" },
+      { title: 'Settings', component: SettingsPage, icon: "md-cog", color: "whiter" },
 
 
     ];
@@ -37,7 +44,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-          this.rootPage = DashboardPage;
+          this.rootPage = AdminDashboardPage;
         }
         else {
           this.rootPage = LoginPage;
@@ -74,11 +81,11 @@ export class MyApp {
     });
     toast.present();
   }
-  collapse() {
-    this.full = false;
-  }
-  expand() {
-    this.full = true;
-  }
+  // collapse() {
+  //   this.full = false;
+  // }
+  // expand() {
+  //   this.full = true;
+  // }
 
 }

@@ -6,10 +6,15 @@ import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { DashboardPage } from '../pages/MainPages/dashboard/dashboard';
 import { LoginPage } from '../pages/Auths/login/login';
 import { ChangePasswordPage } from '../pages/Settings/change-password/change-password';
 import { SettingsPage } from '../pages/MainPages/settings/settings';
+import { FilesPage } from '../pages/MainPages/files/files';
+import { TasksPage } from '../pages/MainPages/tasks/tasks';
+import { AddTaskPage } from '../pages/Tasks/add-task/add-task';
+import { MessagingPage } from '../pages/MainPages/messaging/messaging';
+import { AddEmployeePage } from '../pages/AdminModules/add-employee/add-employee';
+import { AdminDashboardPage } from '../pages/Dashboards/admin-dashboard/admin-dashboard';
 
 
 
@@ -29,10 +34,15 @@ firebase.initializeApp(firebaseCred);
 @NgModule({
   declarations: [
     MyApp,
-    DashboardPage,
     LoginPage,
     ChangePasswordPage,
+    FilesPage,
+    TasksPage,
+    AddTaskPage,
+    MessagingPage,
     SettingsPage,
+    AddEmployeePage,
+    AdminDashboardPage,
   ],
   imports: [
     BrowserModule,
@@ -44,10 +54,15 @@ firebase.initializeApp(firebaseCred);
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    DashboardPage,
     LoginPage,
     ChangePasswordPage,
+    FilesPage,
+    TasksPage,
+    AddTaskPage,
+    MessagingPage,
     SettingsPage,
+    AddEmployeePage,
+    AdminDashboardPage,
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler }
