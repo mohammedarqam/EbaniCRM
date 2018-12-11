@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Send a Mail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <ion-slides>
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>Enter Subject</ion-card-title>
+          <ion-input type="text" [(ngModel)]="subject"></ion-input>
+          <button ion-button (click)="testSubject()">Continue</button>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>Select People</ion-card-title>
+          <div>
+            <h2>Sending To</h2>
+            <ion-badge round margin-right *ngFor="let p of profsSel;let i = index" (click)="rmPerson(p,i)">
+              {{p.Name}}
+              <ion-icon padding-left name="md-close"></ion-icon>
+            </ion-badge>
+          </div>
+          <div>
+            <h2>All People</h2>
+            <ion-badge round margin-right *ngFor="let p of profsRest;let i = index" (click)="SelPerson(p,i)">
+              <ion-icon padding-right name="add"></ion-icon>
+              {{p.Name}}
+            </ion-badge>
+
+          </div>
+          <button ion-button (click)="testPeople()">Continue</button>
+          <br />
+          <button ion-button (click)="gtPrev()" clear float-left>
+            <ion-icon name="md-arrow-round-back" padding-right></ion-icon>
+            Go back
+          </button>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>Enter Message</ion-card-title>
+          <ion-textarea [(ngModel)]="message"></ion-textarea>
+          <button ion-button (click)="testMessage()">Send</button>
+          <br />
+          <button ion-button (click)="gtPrev()" clear float-left>
+            <ion-icon name="md-arrow-round-back" padding-right></ion-icon>
+            Go back
+          </button>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <!-- <ion-card>
+    <ion-card-content>
+      <ion-grid>
+
+        <ion-row>
+          <ion-col text-center col-3>
+            To
+          </ion-col>
+          <ion-col padding col-9 class="rnd">
+            <ion-badge round margin-right *ngFor="let p of profsSel;let i = index" (click)="rmPerson(p,i)">
+              {{p.Name}}
+              <ion-icon padding-left name="md-close"></ion-icon>
+            </ion-badge>
+          </ion-col>
+        </ion-row>
+
+        <ion-row padding-bottom>
+          <ion-col col-9 margin-top push-3>
+            <ion-badge round margin-right *ngFor="let p of profsRest;let i = index" (click)="SelPerson(p,i)">
+              <ion-icon padding-right name="add"></ion-icon>
+              {{p.Name}}
+            </ion-badge>
+          </ion-col>
+        </ion-row>
+
+        <ion-row margin-bottom >
+          <ion-col text-center col-3>
+            Subject
+          </ion-col>
+          <ion-col col-9 class="rnd">
+            <ion-input type="text" [(ngModel)]="subject"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row margin-top>
+          <ion-col text-center col-3>
+            Message
+          </ion-col>
+          <ion-col col-9 class="rnd">
+            <ion-textarea [(ngModel)]="message"></ion-textarea>
+          </ion-col>
+        </ion-row>
+
+        <button ion-button float-right  (click)="checkData()">Send</button>
+
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card> -->
+
+</ion-content>

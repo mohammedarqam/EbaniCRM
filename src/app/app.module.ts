@@ -15,6 +15,8 @@ import { AddTaskPage } from '../pages/Tasks/add-task/add-task';
 import { MessagingPage } from '../pages/MainPages/messaging/messaging';
 import { AddEmployeePage } from '../pages/AdminModules/add-employee/add-employee';
 import { AdminDashboardPage } from '../pages/Dashboards/admin-dashboard/admin-dashboard';
+import { SendMessagePage } from '../pages/Messsaging/send-message/send-message';
+import { ViewMessagePage } from '../pages/Messsaging/view-message/view-message';
 
 
 
@@ -43,6 +45,9 @@ firebase.initializeApp(firebaseCred);
     SettingsPage,
     AddEmployeePage,
     AdminDashboardPage,
+    SendMessagePage,
+    ViewMessagePage,
+    
   ],
   imports: [
     BrowserModule,
@@ -63,6 +68,8 @@ firebase.initializeApp(firebaseCred);
     SettingsPage,
     AddEmployeePage,
     AdminDashboardPage,
+    SendMessagePage,
+    ViewMessagePage,
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler }

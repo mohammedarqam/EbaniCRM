@@ -8,6 +8,7 @@ import { TasksPage } from '../pages/MainPages/tasks/tasks';
 import { FilesPage } from '../pages/MainPages/files/files';
 import { MessagingPage } from '../pages/MainPages/messaging/messaging';
 import { AdminDashboardPage } from '../pages/Dashboards/admin-dashboard/admin-dashboard';
+import { SendMessagePage } from '../pages/Messsaging/send-message/send-message';
 
 @Component({
   templateUrl: 'app.html'
@@ -44,7 +45,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-          this.rootPage = AdminDashboardPage;
+          this.rootPage = MessagingPage;
         }
         else {
           this.rootPage = LoginPage;
@@ -62,16 +63,6 @@ export class MyApp {
     return page == this.activePage;
   }
 
-  signOut() {
-    firebase.auth().signOut().then(() => {
-      this.nav.setRoot(LoginPage);
-      this.presentToast("Signed Out");
-    }).catch((error) => {
-      console.log(error.message);
-    });
-
-
-  }
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,

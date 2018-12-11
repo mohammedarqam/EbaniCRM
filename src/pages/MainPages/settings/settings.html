@@ -9,4 +9,39 @@
 
 <ion-content padding>
 
+
+
+
+
+  <ion-card>
+    <ion-card-content>
+
+      <ion-item *ngIf="name">
+        <h3 item-start ion-text color="primary">Name</h3>
+        <h3 item-end>{{name}}</h3>
+      </ion-item>
+      <ion-item *ngIf="email">
+        <h3 item-start ion-text color="primary">Email</h3>
+        <h3 item-end>{{email}}</h3>
+      </ion-item>
+      <ion-item *ngIf="title">
+          <h3 item-start ion-text color="primary">Title</h3>
+          <h3 item-end>{{title}}</h3>
+        </ion-item>
+        <ion-item *ngIf="department">
+        <h3 item-start ion-text color="primary">Department</h3>
+        <h3 item-end>{{department}}</h3>
+      </ion-item>
+      <ion-item *ngIf="phone">
+        <h3 item-start ion-text color="primary">Phone</h3>
+        <h3 item-end>{{phone}}</h3>
+      </ion-item>
+
+      <button ion-button  (click)="gtChangePass()">Change Password</button>
+
+      <button ion-button float-right color="danger" (click)="confirmSignout()">Sign Out</button>
+
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

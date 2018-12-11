@@ -9,4 +9,68 @@
 
 <ion-content padding>
 
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)"></ion-searchbar>
+      </ion-col>
+      <ion-col col-6>
+        <button ion-button float-right margin-bottom round (click)="compose()">
+          <ion-icon name="add" padding-right></ion-icon>
+          Compose
+        </button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid>
+    <ion-row padding>
+      <ion-col col-4>
+        <ion-segment [(ngModel)]="Mail">
+          <ion-segment-button value="Inbox" (click)="getInbox()">
+            Inbox
+          </ion-segment-button>
+          <ion-segment-button value="Sent" (click)="getSent()">
+            Sent
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+  <div [ngSwitch]="Mail">
+    <ion-list *ngSwitchCase="'Inbox'">
+      <ion-grid>
+        <ion-card *ngFor="let m of inbox" [color]="m.clr" class="curs" (click)="viewMail(m)">
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-3>
+                <p *ngFor="let t of m.ToNames; let isLast=last" style="display : inline">{{t}}{{isLast ? '' : ', '}}</p>
+              </ion-col>
+              <ion-col col-5><strong>{{m.Subject}}</strong> &nbsp;{{m.Message}} </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-grid>
+    </ion-list>
+    <ion-list *ngSwitchCase="'Sent'">
+      <ion-grid>
+        <ion-row *ngFor="let m of inbox">
+          <ion-col col-3>
+            <p *ngFor="let t of m.ToNames; let isLast=last" style="display : inline">{{t}}{{isLast ? '' : ', '}}</p>
+          </ion-col>
+          <ion-col col-5><strong>{{m.Subject}}</strong> &nbsp;{{m.Message}} </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+  </div>
+
+
+
 </ion-content>
