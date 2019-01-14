@@ -1,12 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FileUploader, FileLikeObject } from 'ng2-file-upload';
 
-/**
- * Generated class for the FilesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -14,12 +10,42 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'files.html',
 })
 export class FilesPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+ 
+  constructor() {
+ 
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FilesPage');
+ 
+  // upload(){
+ 
+  //   let files = this.fileField.getFiles();
+  //   console.log(files);
+ 
+  //   let formData = new FormData();
+  //   formData.append('somekey', 'some value') // Add any other data you want to send
+ 
+  //   files.forEach((file) => {
+  //     formData.append('files[]', file.rawFile, file.name);
+  //   });
+ 
+  //   // POST formData to Server
+ 
+  // }
+  public uploader: FileUploader = new FileUploader({});
+  public hasBaseDropZoneOver: boolean = false;
+ 
+ 
+  getFiles(): FileLikeObject[] {
+    return this.uploader.queue.map((fileItem) => {
+      return fileItem.file;
+    });
   }
-
+ 
+  fileOverBase(ev): void {
+    this.hasBaseDropZoneOver = ev;
+  }
+ 
+  reorderFiles(reorderEvent: CustomEvent): void {
+    let element = this.uploader.queue.splice(reorderEvent.detail.from, 1)[0];
+    this.uploader.queue.splice(reorderEvent.detail.to, 0, element);
+  } 
 }
